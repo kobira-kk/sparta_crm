@@ -56,6 +56,15 @@ class CustomersController < ApplicationController
         :company_id)
     end
 
+    def customer_params
+      params.require(:customer).permit(
+        :family_name,
+        :given_name,
+        :email,
+        :company_id,
+        :post_id)
+    end    
+
 # ↓追加
   def set_customer
     @customer = Customer.find(params[:id])
