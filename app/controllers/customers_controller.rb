@@ -36,6 +36,9 @@ class CustomersController < ApplicationController
   end
 
   def show
+    @customer = Customer.find(params[:id])
+    @comment = Comment.new # これをform_withで使う
+    @comments = @customer.comments
   end
 
   def destroy
